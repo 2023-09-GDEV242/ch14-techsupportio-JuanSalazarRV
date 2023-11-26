@@ -127,6 +127,13 @@ public class Responder
             String response = reader.readLine();
             while(response != null) {
                 defaultResponses.add(response);
+                String[] pairs = response.split(",", 2);
+                if (pairs.length == 2) 
+                {
+                    String key = pairs[0].trim();
+                    String value = pairs[1].trim();
+                    responseMap.put(key, value);
+                }
                 response = reader.readLine();
             }
         }
